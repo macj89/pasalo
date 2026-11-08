@@ -1,0 +1,17 @@
+[Unit]
+Description=Pásalo private file sharing app
+After=network.target docker.service
+Wants=docker.service
+
+[Service]
+Type=simple
+User=pasalo
+Group=pasalo
+WorkingDirectory=/opt/pasalo
+EnvironmentFile=/opt/pasalo/.env.production
+ExecStart=/usr/bin/npm start -- --hostname 127.0.0.1 --port 8902
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

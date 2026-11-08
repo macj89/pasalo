@@ -1,0 +1,6 @@
+# Añadir estas dos entradas ANTES de la regla final http_status:404
+- hostname: pasalo.example.com
+  service: http://127.0.0.1:8902
+
+- hostname: files.example.com
+  service: http://127.0.0.1:9000
